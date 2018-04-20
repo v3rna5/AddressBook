@@ -1,0 +1,25 @@
+<h1>My Address Book</h1>
+<ul>
+var myContact in Model
+  {
+
+    <p>Name: @myContact.GetName()</p>
+    <li>@myContact.GetStreet() <button type="feed"> <a href='/feed/@myContact.GetId()'>Feed</a></li>
+    <li>@myContact.GetCity() <button type="sleep"><a href='/sleep/@myContact.GetId()'>Sleep</a></li>
+    <li>@myContact.GetState() <button type="play"><a href='/happy/@myContact.GetId()'>Play</a></li>
+    <li>@myContact.GetZip() <button type="play"><a href='/happy/@myContact.GetId()'>Play</a></li>
+    <li>@myContact.GetPhone() <button type="play"><a href='/happy/@myContact.GetId()'>Play</a></li>
+    } else{
+
+    }
+  }
+</ul>
+
+<p><a href="/">Add another contact.</a></p>
+
+<form action="/addressbook/remove" method="post">
+  <button type="submit" name="button">Timepass</button>
+</form>
+<form action="/addressbook/clear" method="post">
+  <button type="clear">Clear</button>
+  </form>

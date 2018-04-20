@@ -1,6 +1,6 @@
 # _Address Book_
 
-#### _A webpage that store contact info(name,address and phone number)._
+#### _A webpage that store contact info(name, address and phone number)._
 
 #### By _Verna Santos_
 
