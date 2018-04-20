@@ -15,13 +15,13 @@ namespace AddressBook.Models
 
     public Contact (string name, string street, string city, string zip, string phone)
     {
-       _name = name;
+      _name = name;
       _street = street;
       _city = city;
       _zip = zip;
       _phone = phone;
-
     }
+
 
     public string GetName()
     {
@@ -31,7 +31,6 @@ namespace AddressBook.Models
     {
       _name = newName;
     }
-
     public string GetStreet()
     {
       return _street;
@@ -48,23 +47,25 @@ namespace AddressBook.Models
     {
       _city = _newCity;
     }
+
+
     public string GetZip()
     {
       return _zip;
     }
-    public void SetZip(string newZip)
+    public void SetZip(string _newZip)
     {
-      _zip = newZip;
-    }
-    public string GetPhone()
-    {
-      return _phone;
-    }
-    public void SetPhone(string newPhone)
-    {
-      _phone = newPhone;
+      _zip = _newZip;
     }
 
+    public string GetPhone()
+    {
+     return _phone;
+    }
+    public void SetPhone(string _newPhone)
+    {
+      _phone = _newPhone;
+    }
 
     public static List<Contact> GetAll()
     {

@@ -4,31 +4,31 @@ using AddressBook.Models;
 
 namespace AddressBook.Controllers
 {
-    public class InfoController : Controller
+    public class CitiesController : Controller
     {
 
-        [HttpGet("/contacts")]
+        [HttpGet("/")]
         public ActionResult Index()
         {
-            List<Contact> allCities = Contact.GetAll();
-            return View(allCities);
+            List<Contact> allContact = Contact.GetAll();
+            return View(allContact);
         }
 
-        [HttpGet("/contacts/new")]
+        [HttpGet("/cities/new")]
         public ActionResult CreateForm()
         {
             return View();
         }
-        [HttpPost("/")]
+        [HttpPost("cities")]
         public ActionResult Create()
         {
           Contact newContact = new Contact (Request.Form["new-name"], Request.Form["new-street"], Request.Form["new-city"], Request.Form["new-zip"], Request.Form["new-phone"]);
           newContact.Save();
-          List<Contact> allCities = Contact.GetAll();
-          return View("Index", allCities);
+          List<Contact> allContact = Contact.GetAll();
+          return View("Index", allContact);
         }
 
-        [HttpPost("/contacts/delete")]
+        [HttpPost("/cities/delete")]
         public ActionResult DeleteAll()
         {
             Contact.ClearAll();

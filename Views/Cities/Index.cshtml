@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="wwwroot/css/styles.css" />
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+
+<h1>Address Book</h1>
+
+  @foreach(var add in Model)
+  {
+    <p>Name: @add.GetName()</p>
+    <p>Street: @add.GetStreet()</p>
+    <p>City:@add.GetCity()</p>
+    <p>Zip Code: @add.GetZip()</p>
+    <p>Phone: @add.GetPhone()</p>
+  }
+
+<p><a href="/cities/new">Add another Contact</a></p>
+<form action="/cities/delete" method="post">
+  <button type="submit" name="button">Clear All Contacts</button>
+</form>
