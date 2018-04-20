@@ -8,67 +8,76 @@ namespace AddressBook.Models
     private string _name;
     private string _street;
     private string _city;
-    private string _state;
     private string _zip;
     private string _phone;
-    // zprivate string _id;
     private static List<Contact> _instances = new List<Contact> {};
 
-    public Contact (string name, string street, string city, string state, string zip, string phone)
+
+    public Contact (string name, string street, string city, string zip, string phone)
     {
-      _name = name;
+       _name = name;
       _street = street;
       _city = city;
-      _state = state;
       _zip = zip;
       _phone = phone;
-      _instances.Add(this);
-      // _id = _instances.Count;
+
     }
+
     public string GetName()
     {
       return _name;
     }
+    public void SetName(string newName)
+    {
+      _name = newName;
+    }
+
     public string GetStreet()
     {
       return _street;
+    }
+    public void SetStreet(string newStreet)
+    {
+      _street = newStreet;
     }
     public string GetCity()
     {
       return _city;
     }
-    public string GetState()
+    public void SetCity(string _newCity)
     {
-      return _state;
+      _city = _newCity;
     }
     public string GetZip()
     {
       return _zip;
     }
-      public string GetPhone()
+    public void SetZip(string newZip)
+    {
+      _zip = newZip;
+    }
+    public string GetPhone()
     {
       return _phone;
     }
-    // public int GetId()
-    // {
-    //   return _id;
-    // }
+    public void SetPhone(string newPhone)
+    {
+      _phone = newPhone;
+    }
+
+
     public static List<Contact> GetAll()
     {
-        return _instances;
+      return _instances;
     }
-
-    public static void ClearAll()
-      {
-        _instances.Clear();
-      }
-
-
-    public static Contact Find(int searchId)
+    public void Save()
     {
-      return _instances[searchId-1];
+      _instances.Add(this);
+    }
+    public static void ClearAll()
+    {
+      _instances.Clear();
     }
 
-
-}
   }
+}

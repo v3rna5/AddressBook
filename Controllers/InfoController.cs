@@ -1,39 +1,39 @@
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using AddressBook.Models;
 
 namespace AddressBook.Controllers
 {
-  public class InfoController : Controller
-  {
-    [HttpGet("/addressbook")]
-    public ActionResult Index()
+    public class InfoController : Controller
     {
-      List<Contact> allContacts = Contact.GetAll();
-      return View(allContacts);
-    }
 
-    [HttpGet("/")]
-    public ActionResult CreateForm()
-    {
-      return View();
-    }
-
-    [HttpPost("/addressbook")]
-    public ActionResult Create()
-    {
-      Contact newTamagotchi = new Contact (Request.Form["new-name", "new-street", "new-city", "new-state", "new-zip", "new-phone"]);
-
-      List<Contact> allContacts = Contact.GetAll();
-      return View("Index", allContacts);
-    
-
+        [HttpGet("/contacts")]
+        public ActionResult Index()
+        {
+            List<Contact> allCities = Contact.GetAll();
+            return View(allCities);
         }
-        [HttpPost("/addressbook/clear")]
+
+        [HttpGet("/contacts/new")]
+        public ActionResult CreateForm()
+        {
+            return View();
+        }
+        [HttpPost("/")]
+        public ActionResult Create()
+        {
+          Contact newContact = new Contact (Request.Form["new-name"], Request.Form["new-street"], Request.Form["new-city"], Request.Form["new-zip"], Request.Form["new-phone"]);
+          newContact.Save();
+          List<Contact> allCities = Contact.GetAll();
+          return View("Index", allCities);
+        }
+
+        [HttpPost("/contacts/delete")]
         public ActionResult DeleteAll()
         {
             Contact.ClearAll();
             return View();
         }
-  }
+
+    }
 }

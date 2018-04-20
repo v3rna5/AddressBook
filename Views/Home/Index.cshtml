@@ -1,25 +1,19 @@
-<h1>My Address Book</h1>
+<link rel="stylesheet" type="text/css" href="wwwroot/css/styles.css" />
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<h1>Places To Go</h1>
 <ul>
-var myContact in Model
+  @foreach(var add in Model)
   {
+    <p>Name: @add.GetName()</p>
+    <p>Street:@add.GetStreet()</p>
+    <p>City: @add.GetCity()</p>
+    <p>Zip Code: @add.GetZip()</p>
+    <p>Phone #: @add.GetPhone()</p>
 
-    <p>Name: @myContact.GetName()</p>
-    <li>@myContact.GetStreet() <button type="feed"> <a href='/feed/@myContact.GetId()'>Feed</a></li>
-    <li>@myContact.GetCity() <button type="sleep"><a href='/sleep/@myContact.GetId()'>Sleep</a></li>
-    <li>@myContact.GetState() <button type="play"><a href='/happy/@myContact.GetId()'>Play</a></li>
-    <li>@myContact.GetZip() <button type="play"><a href='/happy/@myContact.GetId()'>Play</a></li>
-    <li>@myContact.GetPhone() <button type="play"><a href='/happy/@myContact.GetId()'>Play</a></li>
-    } else{
-
-    }
+    <hr>
   }
 </ul>
-
-<p><a href="/">Add another contact.</a></p>
-
-<form action="/addressbook/remove" method="post">
-  <button type="submit" name="button">Timepass</button>
+<p><a href="/contacts/new">Add another Destination</a></p>
+<form action="/contacts/delete" method="post">
+  <button type="submit" name="button">Clear All Items</button>
 </form>
-<form action="/addressbook/clear" method="post">
-  <button type="clear">Clear</button>
-  </form>
