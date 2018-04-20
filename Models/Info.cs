@@ -12,7 +12,6 @@ namespace AddressBook.Models
     private string _phone;
     private static List<Contact> _instances = new List<Contact> {};
 
-
     public Contact (string name, string street, string city, string zip, string phone)
     {
       _name = name;
@@ -21,7 +20,6 @@ namespace AddressBook.Models
       _zip = zip;
       _phone = phone;
     }
-
 
     public string GetName()
     {
@@ -47,7 +45,6 @@ namespace AddressBook.Models
     {
       _city = _newCity;
     }
-
 
     public string GetZip()
     {
@@ -79,6 +76,5 @@ namespace AddressBook.Models
     {
       _instances.Clear();
     }
-
   }
 }

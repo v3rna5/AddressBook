@@ -4,7 +4,7 @@ using AddressBook.Models;
 
 namespace AddressBook.Controllers
 {
-    public class CitiesController : Controller
+    public class InfoController : Controller
     {
 
         [HttpGet("/")]
@@ -14,12 +14,13 @@ namespace AddressBook.Controllers
             return View(allContact);
         }
 
-        [HttpGet("/cities/new")]
+        [HttpGet("/info/new")]
         public ActionResult CreateForm()
         {
             return View();
         }
-        [HttpPost("cities")]
+
+        [HttpPost("info")]
         public ActionResult Create()
         {
           Contact newContact = new Contact (Request.Form["new-name"], Request.Form["new-street"], Request.Form["new-city"], Request.Form["new-zip"], Request.Form["new-phone"]);
@@ -28,12 +29,11 @@ namespace AddressBook.Controllers
           return View("Index", allContact);
         }
 
-        [HttpPost("/cities/delete")]
+        [HttpPost("/info/delete")]
         public ActionResult DeleteAll()
         {
             Contact.ClearAll();
             return View();
         }
-
     }
 }
