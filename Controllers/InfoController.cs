@@ -35,5 +35,5 @@ namespace AddressBook.Controllers
             Contact.ClearAll();
             return View();
         }
+      }
     }
-}
